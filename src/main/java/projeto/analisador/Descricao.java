@@ -22,7 +22,7 @@ public class Descricao {
         }
 
         // Verifica se é um delimitador
-        if (".,;:".contains(lexema)) {
+        if (".,;:()".contains(lexema)) {
             return "Delimitador";
         }
 
