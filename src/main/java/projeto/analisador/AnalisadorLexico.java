@@ -19,32 +19,40 @@ public class AnalisadorLexico {
     private static final int token_ate = 11;
     private static final int token_passo = 12;
     private static final int token_fim_para = 13;
-    private static final int token_inteiro = 14;
-    private static final int token_numero = 15;
-    private static final int token_string = 16;
-    private static final int token_operador = 17;
-    private static final int token_atribuicao = 18;
-    private static final int token_definicao = 19;
-    private static final int token_delimitador = 20;
-
+    private static final int token_enquanto = 14;
+    private static final int token_fim_enquanto = 15;
+    private static final int token_faca = 16;
+    private static final int token_pare = 17;
+    private static final int token_inteiro = 18;
+    private static final int token_numero = 19;
+    private static final int token_string = 20;
+    private static final int token_operador = 21;
+    private static final int token_atribuicao = 22;
+    private static final int token_definicao = 23;
+    private static final int token_delimitador = 24;
 
     static final Map<String, Integer> palavrasReservadas = new HashMap<>();
     private static final Map<String, Integer> tabelaSimbolos = new HashMap<>();
 
     static {
+        palavrasReservadas.put("EOF", token_eof);
         palavrasReservadas.put("inicio", token_inicio);
         palavrasReservadas.put("fim", token_fim);
         palavrasReservadas.put("leia", token_leia);
         palavrasReservadas.put("imprima", token_imprima);
         palavrasReservadas.put("se", token_se);
-        palavrasReservadas.put("então", token_entao);
-        palavrasReservadas.put("senão", token_senao);
+        palavrasReservadas.put("entao", token_entao);
+        palavrasReservadas.put("senao", token_senao);
         palavrasReservadas.put("fim_se", token_fim_se);
         palavrasReservadas.put("para", token_para);
-        palavrasReservadas.put("até", token_ate);
+        palavrasReservadas.put("ate", token_ate);
         palavrasReservadas.put("passo", token_passo);
-        palavrasReservadas.put("fim_para", token_fim_para);
-        palavrasReservadas.put("inteiro", token_inteiro);    
+        palavrasReservadas.put("fim_para", token_fim_para);   
+        palavrasReservadas.put("enquanto", token_enquanto);
+        palavrasReservadas.put("fim_enquanto", token_fim_enquanto);
+        palavrasReservadas.put("faca", token_faca);
+        palavrasReservadas.put("pare", token_pare);
+        palavrasReservadas.put("inteiro", token_inteiro); 
     }
 
     private static String codigoFonte;
@@ -95,7 +103,26 @@ public class AnalisadorLexico {
         } while (isEspaco(c));
 
         if (c == '\0') {
-            return new Token(token_eof, "EOF", -1);
+            return new Token(token_eof, "EOF", 0);
+        }
+
+        if (c == '/' && proxChar() == '*') {
+            lexema.append(c);
+            lexema.append(proxChar());
+            while (!(proxChar() == '*' && proxChar() == '/')) {
+                if (proxChar() == '\0') {
+                    return new Token(-1, lexema.toString(), -1); 
+                }
+                lexema.append(proxChar());
+            }
+            lexema.append(proxChar());
+            return new Token(-1, lexema.toString(), -1); 
+        }
+
+        if (c == '/' && proxChar() == '/') {
+            lexema.append(c);
+            lexema.append(proxChar());
+            return new Token(-1, lexema.toString(), -1); 
         }
 
         if (c == '\"') {
@@ -121,7 +148,7 @@ public class AnalisadorLexico {
                 }
                 return new Token(token_identificador, palavra, tabelaSimbolos.get(palavra));
             }
-            return new Token(codigo, palavra, -1);
+            return new Token(codigo, palavra, 0);
         }
 
         if (isDigito(c)) {
@@ -133,7 +160,7 @@ public class AnalisadorLexico {
             return new Token(token_numero, lexema.toString(), -1);
         }
 
-        if ("+-/*()<>:;=".indexOf(c)!= -1) {
+        if ("+-/*(){}[]<>:;=".indexOf(c)!= -1) {
             lexema.append(c);
             if (c == '<' && proxChar() == '-') {
                 lexema.append('-');
