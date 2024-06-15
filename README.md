@@ -1,5 +1,7 @@
 # Lexical Analyzer
 ---
+The project consists of a lexical analyzer that identifies the language tokens and creates the symbol table. The main function simulates the syntactic analyzer, successively calling the lexical analyzer and displaying on the standard output the found token (code), its position in the table, and the type of the token.
+---
 ## Example - 1
 ```
 inicio
