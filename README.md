@@ -16,14 +16,14 @@ fim
 ```
 ---
 ## Example - 2
-````
+```
 inicio
-inteiro:b;
-inteiro:c;
-imprima (“digite um valor para c:”);
-leia(c);
-para b=0 até c passo 2
-imprima(b);
-fim_para
+  inteiro:b;
+  inteiro:c;
+  imprima (“digite um valor para c:”);
+  leia(c);
+  para b=0 até c passo 2
+    imprima(b);
+  fim_para
 fim
-````
+```
