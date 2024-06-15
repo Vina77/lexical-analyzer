@@ -1,8 +1,57 @@
 # Lexical Analyzer
----
+
 The project consists of a lexical analyzer that identifies the language tokens and creates the symbol table. The main function simulates the syntactic analyzer, successively calling the lexical analyzer and displaying on the standard output the found token (code), its position in the table, and the type of the token.
----
-## Example - 1
+
+The input language is the Brazilian programming language “Portugol”. This language is often used in educational settings in Brazil to teach the basics of programming. It’s designed to be simple and easy to understand, making it a great starting point for beginners.
+
+The input is made through the file "Entrada.txt".
+
+### The tokens that will be identified by the lexical analyzer are:
+
+## Reserved Words:
+- "EOF"
+- "inicio"
+- "fim"
+- "leia"
+- "imprima"
+- "se"
+- "entao"
+- "senao"
+- "fim_se"
+- "para"
+- "ate"
+- "passo"
+- "fim_para"  
+- "enquanto"
+- "fim_enquanto"
+- "faca"
+- "pare"
+- "inteiro"
+
+## Data types: 
+- "Numéricos"
+- "Inteiros"
+- Literais (string)"
+  
+## Operators: 
+- **Arithmetic:** +, -, *, /
+- **Relational:** <, >, <=, >=, =
+- **Logical:** e, ou, xou, nao
+
+## Delimiters: 
+- ( )
+- [ ]
+- { }
+- ;
+- ,
+
+## Comments:
+- /* */
+- //
+
+## These are two examples of inputs:
+
+### Example - 1
 ```
 inicio
   inteiro:a;
@@ -16,8 +65,8 @@ inicio
   fim_se
 fim
 ```
----
-## Example - 2
+## 
+### Example - 2
 ```
 inicio
   inteiro:b;
@@ -29,4 +78,4 @@ inicio
   fim_para
 fim
 ```
----
+##
