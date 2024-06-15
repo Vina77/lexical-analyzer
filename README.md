@@ -1,7 +1,7 @@
 # Lexical Analyzer
 ---
+## Example - 1
 ```
-# Example - 1
 inicio
   inteiro:a;
   imprima (“digite um valor para a:”);
