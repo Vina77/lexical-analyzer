@@ -6,6 +6,28 @@ The input language is the Brazilian programming language “Portugol”. This la
 
 The input is made through the file "Entrada.txt".
 
+##
+
+### Installation Instructions
+1. Java Development Kit (JDK): Ensure that the Java Development Kit (JDK) is installed on your system. You can check this by running java -version and javac -version in your terminal or command prompt. If Java is not installed, download and install it from the official Oracle website.
+
+2. Clone the Repository: Clone the project repository to your local machine using Git. Run the following command in your terminal or command prompt:
+
+3. Navigate to the Project Directory: Change your current directory to the cloned project directory:
+
+##
+### Execution Instructions
+1. Compile the Java Application: Compile the Java source files into bytecode using the javac command. Assuming your main class is named Main, run:
+```
+  javac Main.java
+```
+
+2. Run the Java Application: Execute the compiled Java application using the java command:
+```
+  java Main
+```
+##
+
 ### The tokens that will be identified by the lexical analyzer are:
 
 ## Reserved Words:
@@ -77,25 +99,5 @@ inicio
     imprima(b);
   fim_para
 fim
-```
-##
-
-### Installation Instructions
-1. Java Development Kit (JDK): Ensure that the Java Development Kit (JDK) is installed on your system. You can check this by running java -version and javac -version in your terminal or command prompt. If Java is not installed, download and install it from the official Oracle website.
-
-2. Clone the Repository: Clone the project repository to your local machine using Git. Run the following command in your terminal or command prompt:
-
-3. Navigate to the Project Directory: Change your current directory to the cloned project directory:
-
-##
-### Execution Instructions
-1. Compile the Java Application: Compile the Java source files into bytecode using the javac command. Assuming your main class is named Main, run:
-```
-  javac Main.java
-```
-
-2. Run the Java Application: Execute the compiled Java application using the java command:
-```
-  java Main
 ```
 ##
